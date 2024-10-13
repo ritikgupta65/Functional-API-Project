@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Next Word Predictor</title>
+    <style>
+        body {
+            /* font-family: Arial, sans-serif; */
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .form-container {
+            margin-top: 36px;
+            margin-left: 59px;
+            max-width: 450px;
+            height: 700px;
+            padding: 20px;
+            /* border: 3px solid #020b0d; */
+            border-radius: 10px;
+        }
+
+        .form-container input {
+            width: fit-content;
+            padding: 10px;
+            margin: 5px 0 20px 0;
+            display: inline-block;
+            border: 1px solid #0b0606;
+            border-radius: 5px;
+            box-sizing: border-box;
+            /* background-color:rgb(237, 232, 224); */
+            box-shadow: 8px 11px 11px 3px rgb(37, 36, 36)
+        }
+
+        .form-container input[type="submit"] {
+            background-color: #4CAF50;
+            /* color: white; */
+            border: 1px solid green;
+            width: 40%;
+
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            font-size: 1.5em;
+            color: #4CAF50;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://cdn.pixabay.com/photo/2020/10/07/12/32/warehouse-5635000_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.89;
+            z-index: -1;
+        }
+
+        .heading {
+            height: 70px;
+            /* border: solid 2px #ff0000; */
+            /* background-color: #da8383; */
+            font-size: 30px;
+            padding-top: 0px;
+            padding-left: 10px;
+            /* padding-bottom: 25px; */
+            display: inline-block;
+            width: 33%;
+            font-weight: bolder;
+            margin-left: 50px;
+        }
+
+        .navbar {
+            display: inline-block;
+            /* width:30%; */
+            /* margin:12px  auto; */
+            /* border: solid 2px red; */
+            margin-left: 600px;
+            color: #010404;
+
+
+        }
+
+        /* .nevigation{
+            /* display: inline-block; */
+
+        .navbar li {
+            display: inline-block;
+            margin: 10px;
+
+        }
+
+        .navbar li a {
+            text-decoration: none;
+            color: #010404;
+
+        }
+
+        .prediction_result {
+            /* border: 2px solid rgb(11, 6, 6); */
+            width: fit-content;
+            height: 300px;
+            margin-top: 100px;
+        }
+
+        .prediction_result ul {
+            padding: 10px;
+        }
+
+        .prediction_result h3 {
+            margin-left: 10px;
+        }
+
+        .text {
+            width: 300px;
+            text-align: center ;
+            /* border: 2px solid rgb(9, 7, 7); */
+            height: 400px;
+            padding: 60px;
+            margin-top: 100px;
+             animation-delay: 2s;
+          /*  animation-duration: 2s;
+            animation-fill-mode: forwards; */
+            animation: slideIn 2s ease-in-out 2 alternate;
+        }
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(100%); /* Start from below the box */
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(0); /* Slide into the box */
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100%); /* Slide up out of the box */
+            }
+        }
+           
+        .in_out{
+          /* border: 2px solid black; */
+          display: flex;
+          justify-content: space-between; 
+        }
+        .form-container , .prediction_result{
+            border: 2px solid rgb(235, 227, 227);
+            border-radius: 8px ;
+            
+            box-shadow: 8px 11px 11px 3px rgb(33 20 20);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="nevigation">
+        <div class="heading">
+            <p>Alumminiam rod properties prediction </p>
+        </div>
+
+        <ul class="navbar">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Email</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </div>
+    <div class="in_out">
+    <div class="form-container">
+        <h2>Enter required condition for rod : </h2>
+        <form action="/submit" method="post">
+
+
+            <label for="text">Enter Chemical_Composition :</label>
+            <input type="number" step="0.1" name="text" placeholder=" in (%)" required>
+
+            <br>
+            <label for="text">Enter Casting_Temperature :</label>
+            <input type="number" step="0.1" name="text" placeholder="in degrees Celsius (°C)" required>
+            <br>
+            <label for="text">Enter Cooling_Water_Temperature :</label>
+            <input type="number" step="0.1" name="text" placeholder="in degrees Celsius (°C)" required>
+            <br>
+            <label for="text">Enter Casting_Speed :</label>
+            <input type="number" step="0.01" name="text" placeholder="(m/min)" required>
+            <br>
+            <label for="text">Enter Entry_Temperature :</label>
+            <input type="number" step="0.1" name="text" placeholder="in degrees Celsius (°C)" required>
+            <br>
+            <label for="text">Enter Emulsion_Temperature : </label>
+            <input type="number" step="0.1" name="text" placeholder="in degrees Celsius (°C)" required>
+            <br>
+            <label for="text">Enter Emulsion_Pressure :</label>
+            <input type="number" step="0.1" name="text" placeholder="Pascal (Pa) " required>
+            <br>
+            <label for="text">Enter Emulsion_Concentration :</label>
+            <input type="number" step="0.1" name="text" placeholder="(%) by volume " required>
+            <br>
+            <label for="text">Enter Quench_Water_Pressure :</label>
+            <input type="number" step="0.1" name="text" placeholder="Pascal (Pa) " required>
+            <br>
+
+            <input type="submit" value="submit">
+        </form>
+    </div>
+    <div class="prediction_result">
+        <h3>Predicted Properties :</h3>
+        <ul>UTS Prediction :{{UTS_Prection}} </ul>
+        <!-- <br> -->
+        <ul>Elongation Prediction :{{Elongation_Prection}} </ul>
+
+        <ul>Conductivity Prediction :{{Conductivity_Prection}} </ul>
+    </div>
+
+    <div class="text">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum hic laudantium, at facilis est ipsum
+            asperiores. Nulla ad consequatur necessitatibus, rem iusto, assumenda error pariatur non quam fugit repellat
+            minima maxime, doloremque quo laudantium? Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Blanditiis error aspernatur commodi ullam corporis fuga provident repellendus eum. Cumque, reprehenderit
+            error magnam facilis ratione pariatur, ea, atque repellendus minima nulla repudiandae odio fuga id?</p>
+    </div>
+    </div>
+    
+    <!-- </body> -->
+    <!-- {% if prediction_text %}
+        <div class="result">{{ prediction_text }}</div>
+        {% endif %}
+    </div> -->
+    <!-- </body> -->
+</body>
+
+</html>
