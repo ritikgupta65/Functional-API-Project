@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Next Word Predictor</title>
+    <title>Alumminium rod properties prediction </title>
     <style>
         body {
             /* font-family: Arial, sans-serif; */
@@ -58,10 +58,10 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: url('https://cdn.pixabay.com/photo/2020/10/07/12/32/warehouse-5635000_1280.jpg');
+            background-image: url("https://img.freepik.com/premium-photo/landscape-man-blue-apron-working-machine-factory_1288286-10159.jpg?w=1380");
             background-size: cover;
             background-position: center;
-            opacity: 0.89;
+            opacity: 0.8;
             z-index: -1;
         }
 
@@ -166,7 +166,7 @@
 
     <div class="nevigation">
         <div class="heading">
-            <p>Alumminiam rod properties prediction </p>
+            <p>Alumminium rod properties prediction:</p>
         </div>
 
         <ul class="navbar">
@@ -182,33 +182,48 @@
         <form action="/submit" method="post">
 
 
-            <label for="text">Enter Chemical_Composition :</label>
-            <input type="number" step="0.1" name="text" placeholder=" in (%)" required>
+            <label for="Chemical_Composition">Enter Chemical_Composition :</label>
+            <input type="number" step="0.1" name="Chemical_Composition" placeholder=" in (%)" required>
 
             <br>
-            <label for="text">Enter Casting_Temperature :</label>
-            <input type="number" step="0.1" name="text" placeholder="in degrees Celsius (°C)" required>
+
+            <label for="Casting_Temperature">Enter Casting_Temperature :</label>
+            <input type="number" step="0.1" name="Casting_Temperature" placeholder="in degrees Celsius (°C)" required>
             <br>
-            <label for="text">Enter Cooling_Water_Temperature :</label>
-            <input type="number" step="0.1" name="text" placeholder="in degrees Celsius (°C)" required>
+
+            <label for="Cooling_Water_Temperature">Enter Cooling_Water_Temperature :</label>
+            <input type="number" step="0.1" name="Cooling_Water_Temperature" placeholder="in degrees Celsius (°C)" required>
+
             <br>
-            <label for="text">Enter Casting_Speed :</label>
-            <input type="number" step="0.01" name="text" placeholder="(m/min)" required>
+
+            <label for="Casting_Speed">Enter Casting_Speed :</label>
+            <input type="number" step="0.01" name="Casting_Speed" placeholder="(m/min)" required>
+
             <br>
-            <label for="text">Enter Entry_Temperature :</label>
-            <input type="number" step="0.1" name="text" placeholder="in degrees Celsius (°C)" required>
+
+            <label for="Entry_Temperature">Enter Entry_Temperature :</label>
+            <input type="number" step="0.1" name="Entry_Temperature" placeholder="in degrees Celsius (°C)" required>
+
             <br>
-            <label for="text">Enter Emulsion_Temperature : </label>
-            <input type="number" step="0.1" name="text" placeholder="in degrees Celsius (°C)" required>
+
+            <label for="Emulsion_Temperature">Enter Emulsion_Temperature : </label>
+            <input type="number" step="0.1" name="Emulsion_Temperature" placeholder="in degrees Celsius (°C)" required>
+
             <br>
-            <label for="text">Enter Emulsion_Pressure :</label>
-            <input type="number" step="0.1" name="text" placeholder="Pascal (Pa) " required>
+
+            <label for="Emulsion_Pressure">Enter Emulsion_Pressure :</label>
+            <input type="number" step="0.1" name="Emulsion_Pressure" placeholder="Pascal (Pa) " required>
+
             <br>
-            <label for="text">Enter Emulsion_Concentration :</label>
-            <input type="number" step="0.1" name="text" placeholder="(%) by volume " required>
+
+            <label for="Emulsion_Concentration">Enter Emulsion_Concentration :</label>
+            <input type="number" step="0.1" name="Emulsion_Concentration" placeholder="(%) by volume " required>
+            
             <br>
-            <label for="text">Enter Quench_Water_Pressure :</label>
-            <input type="number" step="0.1" name="text" placeholder="Pascal (Pa) " required>
+
+            <label for="Quench_Water_Pressure">Enter Quench_Water_Pressure :</label>
+            <input type="number" step="0.1" name="Quench_Water_Pressure" placeholder="Pascal (Pa) " required>
+
             <br>
 
             <input type="submit" value="submit">
@@ -216,11 +231,11 @@
     </div>
     <div class="prediction_result">
         <h3>Predicted Properties :</h3>
-        <ul>UTS Prediction :{{UTS_Prection}} </ul>
-        <!-- <br> -->
-        <ul>Elongation Prediction :{{Elongation_Prection}} </ul>
+        <ul>UTS Prediction :{{UTS_Prediction}} </ul>
+  
+        <ul>Elongation Prediction :{{Elongation_Prediction}} </ul>
 
-        <ul>Conductivity Prediction :{{Conductivity_Prection}} </ul>
+        <ul>Conductivity Prediction :{{Conductivity_Prediction}} </ul>
     </div>
 
     <div class="text">
@@ -231,13 +246,7 @@
             error magnam facilis ratione pariatur, ea, atque repellendus minima nulla repudiandae odio fuga id?</p>
     </div>
     </div>
-    
-    <!-- </body> -->
-    <!-- {% if prediction_text %}
-        <div class="result">{{ prediction_text }}</div>
-        {% endif %}
-    </div> -->
-    <!-- </body> -->
+
 </body>
 
 </html>
